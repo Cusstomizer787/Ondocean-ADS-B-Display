@@ -1,0 +1,90 @@
+@startuml Structure_Projet_ADS-B_Orly
+
+title Structure des Fichiers - Projet ADS-B Orly
+
+package "TP_FINAL" {
+    
+    folder "adsb25" {
+        file "orly.jsonl.gz" as data
+        note right: Donnees ADS-B brutes\n16/10/2025 15h-16h
+    }
+    
+    folder "Scripts Python" {
+        
+        package "Scripts Principaux" {
+            file "Script_Initial.py" as script1
+            note right: ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau.py\nVersion initiale
+            
+            file "Script_POO.py" as script2
+            note right: ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_OO.py\nVersion POO
+        }
+        
+        package "Scripts Grafana" {
+            file "Script_Grafana.py" as script3
+            note right: ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py\nExport Grafana
+            
+            file "export_takeoffs.py" as export_to
+            file "export_all_trajectories.py" as export_all
+        }
+    }
+    
+    folder "Donnees Exportees" {
+        
+        package "CSV Grafana" {
+            file "sample_trajectory_for_grafana.csv" as csv_land
+            note right: 22 atterrissages\n10 302 points
+            
+            file "takeoffs_trajectory_for_grafana.csv" as csv_to
+            note right: 23 decollages\n10 067 points
+        }
+        
+        package "Dashboard Grafana" {
+            file "grafana_dashboard_adsb_final.json" as dashboard
+            note right: Dashboard complet\n2 MB
+        }
+    }
+    
+    folder "Documentation" {
+        file "README.md" as readme
+        file "PROJET_ADSB_RESUME.md" as resume
+        file "INDEX_DOCUMENTATION.md" as index
+        
+        package "Diagrammes PlantUML" {
+            file "architecture_classes.puml"
+            file "workflow_traitement.puml"
+            file "pipeline_data.puml"
+        }
+    }
+    
+    folder "Donnees IGN" {
+        folder "ROUTE500" {
+            note right: Fonds de carte IGN France
+        }
+    }
+}
+
+' Relations
+data --> script2 : lecture
+data --> script3 : lecture
+
+script2 --> csv_land : genere
+script2 --> csv_to : genere
+script3 --> csv_land : genere
+script3 --> csv_to : genere
+
+csv_land --> dashboard : integre
+csv_to --> dashboard : integre
+
+export_to --> csv_to : genere
+export_all --> csv_land : genere
+
+' Legende
+note bottom
+    **Fichiers Cles**
+    - ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_OO.py : Architecture POO
+    - ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py : Export Grafana
+    - PROJET_ADSB_RESUME.md : Resume complet
+    - grafana_dashboard_adsb_final.json : Dashboard pret
+end note
+
+@enduml

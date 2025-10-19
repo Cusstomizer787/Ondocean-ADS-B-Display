@@ -1,0 +1,77 @@
+@startuml Structure_Projet_ADS-B_Orly
+
+!define LIGHTBLUE #E3F2FD
+!define LIGHTGREEN #E8F5E9
+!define LIGHTYELLOW #FFFDE7
+!define LIGHTORANGE #FFF3E0
+!define LIGHTPINK #FCE4EC
+
+title Structure des Fichiers - Projet ADS-B Orly
+
+package "TP_FINAL" {
+    
+    folder "adsb25" as data_folder {
+        file "orly.jsonl.gz" as data
+        note right: Donnees ADS-B brutes\n16/10/2025 15h-16h
+    }
+    
+    folder "Scripts Python" as scripts {
+        
+        file "Script_Initial.py" as script1
+        note right: ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau.py\nVersion initiale
+        
+        file "Script_POO.py" as script2
+        note right: ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_OO.py\nArchitecture POO
+        
+        file "Script_Grafana.py" as script3
+        note right: ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py\nExport Grafana
+        
+        file "export_takeoffs.py" as export_to
+        file "export_all_trajectories.py" as export_all
+    }
+    
+    folder "Donnees Exportees" as exports {
+        file "sample_trajectory_for_grafana.csv" as csv_land
+        note right: 22 atterrissages\n10 302 points
+        
+        file "takeoffs_trajectory_for_grafana.csv" as csv_to
+        note right: 23 decollages\n10 067 points
+        
+        file "grafana_dashboard_adsb_final.json" as dashboard
+        note right: Dashboard complet\n2 MB
+    }
+    
+    folder "Documentation" as docs {
+        file "README.md" as readme
+        file "PROJET_ADSB_RESUME.md" as resume
+        file "INDEX_DOCUMENTATION.md" as index
+        
+        folder "Diagrammes PlantUML" {
+            file "architecture_classes.puml"
+            file "workflow_traitement.puml"
+            file "pipeline_data.puml"
+        }
+    }
+    
+    folder "Donnees IGN" as ign {
+        folder "ROUTE500" {
+            note right: Fonds de carte IGN France
+        }
+    }
+}
+
+' Relations
+data --> script2 : lecture
+data --> script3 : lecture
+
+script2 --> exports : genere visualisation
+script3 --> csv_land : genere
+script3 --> csv_to : genere
+
+csv_land --> dashboard : integre
+csv_to --> dashboard : integre
+
+export_to --> csv_to : genere
+export_all --> csv_land : genere
+
+@enduml

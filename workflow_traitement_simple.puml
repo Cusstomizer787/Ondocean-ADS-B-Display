@@ -1,0 +1,45 @@
+@startuml Workflow_Simple
+
+title Workflow de Traitement des Donnees ADS-B
+
+start
+
+:Lecture fichier JSONL.gz;
+
+:Chargement en DataFrame pandas;
+
+:Creation FlightCollection;
+
+:Groupement par icao24;
+
+:Decoupage par gaps temporels;
+
+:Creation objets Flight;
+
+:Analyse altitude et vertical_rate;
+
+if (Atterrissage detecte?) then (oui)
+  :Marquer ATTERRISSAGE;
+elseif (Decollage detecte?) then (oui)
+  :Marquer DECOLLAGE;
+else (non)
+  :Vol non classifie;
+endif
+
+:Export CSV Atterrissages\n22 trajectoires;
+
+:Export CSV Decollages\n23 trajectoires;
+
+:Generation Dashboard Grafana\n2 MB;
+
+fork
+  :Visualisation Matplotlib;
+fork again
+  :Visualisation Grafana;
+end fork
+
+:Statistiques finales\nTotal: ~460 vols\nAtterrissages: 22\nDecollages: 23;
+
+stop
+
+@enduml

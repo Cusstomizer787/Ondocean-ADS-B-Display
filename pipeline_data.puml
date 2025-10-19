@@ -1,0 +1,44 @@
+@startuml Pipeline_Donnees_Simple
+
+title Pipeline de Donnees - ADS-B Orly
+
+' Source
+rectangle "1. Donnees Sources\n\norly.jsonl.gz\nMessages ADS-B bruts\nJSON Lines gzip\n~50 MB" as source
+
+' Ingestion
+rectangle "2. Ingestion\n\nFlightCollectionGrafana.read_jsonl_gz()\nDecompression gzip\nParsing JSON\nConversion DataFrame" as ingestion
+
+' Transformation
+rectangle "3. Transformation\n\nGroupement par icao24\nDecoupage gaps > 20000s\nCreation objets Flight\nFiltrages" as transform
+
+' Export
+rectangle "4. Export\n\nCSV Grafana (2 fichiers)\nGeoDataFrame\nDashboard JSON (2 MB)" as export
+
+' Visualisation
+rectangle "5. Visualisation\n\nMatplotlib (statique)\nGrafana (interactif)" as viz
+
+' Flux
+source -down-> ingestion : "gzip stream"
+ingestion -down-> transform : "DataFrame\n~460 vols"
+transform -down-> export : "22 atterrissages\n23 decollages"
+export -down-> viz : "Multiples formats"
+
+' Notes
+note right of source
+    Periode: 16/10/2025
+    15h00 - 16h00
+end note
+
+note right of transform
+    Criteres:
+    - Atterrissage: alt<=100ft & vr<=-1500
+    - Decollage: alt<=100ft & vr>=3000
+end note
+
+note right of viz
+    Resultat:
+    45 trajectoires
+    20 369 points
+end note
+
+@enduml

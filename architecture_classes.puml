@@ -1,0 +1,54 @@
+@startuml Architecture_Classes_Simple
+
+title Architecture POO - Projet ADS-B Orly
+
+class Flight {
+  - data: DataFrame
+  --
+  + icao24: str
+  + callsign: str
+  --
+  + is_landing(): bool
+  + is_takeoff(): bool
+  + get_trajectory(): DataFrame
+  + altitude_range(): tuple
+  + vertical_rate_range(): tuple
+  + has_valid_trajectory(): bool
+  + to_geopandas(): GeoDataFrame
+}
+
+class FlightCollection {
+  - data: DataFrame
+  --
+  + __iter__(): Iterator[Flight]
+  + __getitem__(key): Flight
+  + __len__(): int
+  --
+  + filter_landings(): List[Flight]
+  + filter_takeoffs(): List[Flight]
+  + get_statistics(): dict
+  + filter_by_icao24_only(): Iterator[Flight]
+  + read_json(filename): FlightCollection
+}
+
+class FlightCollectionGrafana {
+  --
+  + read_jsonl_gz(filename): FlightCollectionGrafana
+}
+
+FlightCollection "1" *-- "0..*" Flight : contient
+FlightCollectionGrafana --|> FlightCollection : herite
+
+note right of Flight
+  Criteres de detection:
+  - Atterrissage: alt<=100ft & vr<=-1500
+  - Decollage: alt<=100ft & vr>=3000
+end note
+
+note right of FlightCollection
+  Groupement par:
+  - icao24 + callsign
+  - Gaps temporels (20000s)
+end note
+
+@enduml

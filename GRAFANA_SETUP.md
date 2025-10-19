@@ -1,18 +1,18 @@
 # ADS-B Trajectory Visualization with Grafana
 
-This guide explains how to set up Grafana to visualize ADS-B aircraft trajectories using the enhanced `tests_Grafana.py` implementation.
+This guide explains how to set up Grafana to visualize ADS-B aircraft trajectories using the enhanced `ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py` implementation.
 
 ## Architecture Overview
 
 ```
-ADS-B JSON Data → tests_Grafana.py → InfluxDB (time-series) + PostgreSQL (metadata) → Grafana Dashboard
+ADS-B JSON Data → ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py → InfluxDB (time-series) + PostgreSQL (metadata) → Grafana Dashboard
 ```
 
 ### Components:
 - **InfluxDB**: Stores trajectory points as time-series data
 - **PostgreSQL**: Stores flight metadata and statistics
 - **Grafana**: Visualizes data with maps, charts, and dashboards
-- **tests_Grafana.py**: Enhanced Flight classes with export capabilities
+- **ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py**: Enhanced Flight classes with export capabilities
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ docker run -d -p 3000:3000 \
 
 ## Configuration
 
-### 1. Update Configuration in tests_Grafana.py
+### 1. Update Configuration in ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py
 
 Edit the `GRAFANA_CONFIG` dictionary:
 
@@ -113,7 +113,7 @@ GRAFANA_CONFIG = {
 Run the setup function in Python:
 
 ```python
-from tests_Grafana import setup_grafana_databases
+from ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA import setup_grafana_databases
 setup_grafana_databases()
 ```
 
@@ -141,7 +141,7 @@ setup_grafana_databases()
 ### 1. Basic Data Export
 
 ```python
-from tests_Grafana import FlightCollectionGrafana, GrafanaExporter
+from ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA import FlightCollectionGrafana, GrafanaExporter
 
 # Initialize exporter
 exporter = GrafanaExporter()
@@ -283,7 +283,7 @@ WHERE start_time < NOW() - INTERVAL '90 days';
 
 ```python
 # Test database connections
-from tests_Grafana import GrafanaExporter
+from ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA import GrafanaExporter
 exporter = GrafanaExporter()
 
 # Check InfluxDB connection

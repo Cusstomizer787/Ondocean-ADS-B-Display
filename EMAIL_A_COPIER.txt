@@ -1,0 +1,55 @@
+Objet : [TP 6ILM4] Projet ADS-B Orly - Cusseau & Bleicher
+
+================================================================
+
+Bonjour,
+
+Nous vous transmettons notre travail autonome portant sur l'analyse et la visualisation des trajectoires ADS-B à l'aéroport d'Orly.
+
+Repository GitHub : https://github.com/Cusstomizer787/Ondocean-ADS-B-Display
+
+Le repository contient :
+- Scripts Python (architecture POO avec classes Flight & FlightCollection)
+- Données ADS-B (7 stations, période 16/10/2025 15h-16h)
+- Dashboard Grafana interactif (22 atterrissages + 23 décollages)
+- Documentation complète (18 fichiers)
+- Diagrammes UML et workflows
+
+Résultats principaux :
+
+✅ 460 vols détectés sur la période d'une heure
+✅ 22 trajectoires d'atterrissage classifiées (10 302 points)
+✅ 23 trajectoires de décollage classifiées (10 067 points)
+✅ Visualisations avec fond de carte IGN ROUTE500
+✅ Dashboard Grafana opérationnel avec géolocalisation temps réel
+
+Technologies utilisées :
+- Python : pandas, geopandas, matplotlib
+- Données : ADS-B (format JSONL), IGN ROUTE500 (Lambert-93)
+- Visualisation : Grafana avec plugin Geomap
+- Architecture : POO (classes réutilisables)
+
+Fichiers joints :
+Nous joignons 5 visualisations principales en pièces jointes :
+1. carte_trajectoires_orly_complete.png - Carte principale avec trajectoires
+2. fond_carte_orly_trajectoires.png - Vue avec fond IGN détaillé
+3. histogrammes_adsb.png - Analyses statistiques
+4. architecture_classes.png - Diagramme UML POO
+5. workflow_traitement.png - Workflow de traitement
+
+L'ensemble du code source, des données et de la documentation est disponible sur GitHub.
+
+Installation et reproduction :
+
+git clone https://github.com/Cusstomizer787/Ondocean-ADS-B-Display.git
+cd Ondocean-ADS-B-Display
+pip install -r requirements.txt
+python ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_OO.py
+
+Nous restons à votre disposition pour toute question ou démonstration.
+
+Cordialement,
+
+Nicolas Cusseau & Emile Bleicher
+Mastère Spécialisé ILEMS - Promotion 2025
+ECE Paris

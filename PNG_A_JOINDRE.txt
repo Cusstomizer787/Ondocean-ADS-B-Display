@@ -1,0 +1,61 @@
+═══════════════════════════════════════════════════════════════
+  FICHIERS PNG À JOINDRE À L'EMAIL ENSEIGNANT
+═══════════════════════════════════════════════════════════════
+
+DOSSIER SOURCE :
+C:\Users\ncuss\Documents\GitHub\pyclass\TP_FINAL\Rapport
+
+═══════════════════════════════════════════════════════════════
+  PRIORITAIRES (5 FICHIERS - 2.5 MB)
+═══════════════════════════════════════════════════════════════
+
+1. carte_trajectoires_orly_complete.png
+   ├─ Taille : 1.2 MB
+   └─ Description : Carte principale avec toutes les trajectoires
+
+2. fond_carte_orly_trajectoires.png
+   ├─ Taille : 1.1 MB
+   └─ Description : Vue avec fond de carte IGN détaillé
+
+3. histogrammes_adsb.png
+   ├─ Taille : 110 KB
+   └─ Description : Analyses statistiques des vols
+
+4. architecture_classes.png
+   ├─ Taille : 52 KB
+   └─ Description : Diagramme UML de l'architecture POO
+
+5. workflow_traitement.png
+   ├─ Taille : 48 KB
+   └─ Description : Workflow du traitement des données
+
+═══════════════════════════════════════════════════════════════
+  INSTRUCTIONS D'ENVOI
+═══════════════════════════════════════════════════════════════
+
+1. Ouvrir le dossier :
+   C:\Users\ncuss\Documents\GitHub\pyclass\TP_FINAL\Rapport
+
+2. Sélectionner les 5 fichiers listés ci-dessus
+
+3. Glisser-déposer dans l'email
+
+4. Vérifier que les 5 fichiers sont bien attachés
+
+5. Envoyer
+
+═══════════════════════════════════════════════════════════════
+  FICHIERS OPTIONNELS (SI DEMANDÉS)
+═══════════════════════════════════════════════════════════════
+
+- pipeline_data.png (49 KB)
+- structure_projet.png (131 KB)
+- carte_fond_trajectoires.png (685 KB)
+- carte_ign_simple.png (440 KB)
+
+═══════════════════════════════════════════════════════════════
+
+TOTAL PRIORITAIRES : ~2.5 MB
+TOTAL COMPLET : ~4.5 MB
+
+Note : Les 5 fichiers prioritaires suffisent. Le reste est sur GitHub.

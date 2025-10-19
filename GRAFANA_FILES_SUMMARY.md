@@ -35,7 +35,7 @@ takeoffs_trajectory_for_grafana.csv        (1.1 MB)
 
 #### Script principal
 ```
-tests_Grafana.py
+ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py
 ```
 Fonctions disponibles :
 - `export_sample_data_csv()` - Export atterrissages
@@ -84,7 +84,7 @@ grafana_dashboard_adsb_final.json
 ### 2. Régénérer les données
 ```bash
 # Atterrissages + décollages
-python tests_Grafana.py
+python ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py
 
 # Ou uniquement décollages
 python export_takeoffs.py
@@ -114,7 +114,7 @@ TP_FINAL/
 ├── grafana_dashboard_adsb_final.json          # ← À IMPORTER
 ├── sample_trajectory_for_grafana.csv          # Données atterrissages
 ├── takeoffs_trajectory_for_grafana.csv        # Données décollages
-├── tests_Grafana.py                           # Script export
+├── ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py  # Script export
 ├── export_takeoffs.py                         # Script décollages
 ├── README_GRAFANA_DASHBOARD.md                # Documentation
 └── GRAFANA_FILES_SUMMARY.md                   # Ce fichier

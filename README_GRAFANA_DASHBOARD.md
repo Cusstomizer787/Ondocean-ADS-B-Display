@@ -17,7 +17,7 @@ Dashboard Grafana visualisant les trajectoires d'atterrissage et de décollage �
 - **`takeoffs_trajectory_for_grafana.csv`** : 23 trajectoires de décollage (10 067 points)
 
 ### Scripts d'export
-- **`tests_Grafana.py`** : Script principal avec les fonctions d'export
+- **`ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py`** : Script principal avec les fonctions d'export
 - **`export_takeoffs.py`** : Script pour exporter uniquement les décollages
 
 ## 🚀 Utilisation
@@ -44,7 +44,7 @@ Pour mettre à jour les données avec de nouvelles trajectoires :
 
 ```bash
 # Export des atterrissages
-python tests_Grafana.py
+python ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py
 
 # Export des décollages
 python export_takeoffs.py

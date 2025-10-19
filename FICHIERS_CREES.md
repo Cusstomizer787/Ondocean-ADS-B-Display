@@ -242,7 +242,7 @@ TP_FINAL/
 ### Pour Développement
 1. `architecture_classes.puml` - Comprendre le code
 2. `pipeline_data.puml` - Flux de données
-3. `tests5_clean.py` - Code source
+3. `ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_OO.py` - Code source
 
 ### Pour Évaluation Académique
 1. `README.md` - Vue d'ensemble

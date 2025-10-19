@@ -127,9 +127,9 @@ Alt+D sur un fichier .puml
 3. `architecture_classes.puml`
 
 ### Utiliser le Code
-1. `tests5_clean.py` (code source)
+1. `ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_OO.py` (code source)
 2. `architecture_classes.puml` (architecture)
-3. `tests_Grafana.py` (export)
+3. `ILEMS2025_ECE_6ILM4_TA_Bleicher_Cusseau_GRAFANA.py` (export)
 
 ### Visualiser dans Grafana
 1. `README_GRAFANA_DASHBOARD.md` (guide)
